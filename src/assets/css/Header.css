@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header h2 {
+  font-size: 15px;
+  margin: 0;
+}
+.header .right {
+  display: flex;
+}
+.header .right h2 {
+  margin-left: 1em;
+}
+.header .left {
+  display: flex;
+}
+.header .left h2 {
+  margin-left: 1em;
+}
+.header img {
+  width: 25px;
+  height: 25px;
+}/*# sourceMappingURL=Header.css.map */

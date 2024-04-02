@@ -1,0 +1,86 @@
+.top {
+  display: flex;
+}
+.top .name h4 {
+  font-size: 25px;
+  margin: 0;
+  margin-left: 10px;
+}
+.top img {
+  width: 32px;
+  height: 28px;
+  margin-top: 2px;
+}
+
+.items {
+  margin-top: 3vw;
+}
+.items ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.items ul li {
+  position: relative;
+}
+.items .item {
+  display: flex;
+  margin-top: 10px;
+  padding: 1vh;
+}
+.items .item .icon {
+  position: absolute;
+  right: 0.8vw;
+  width: 10px;
+  height: 10px;
+}
+.items .item img {
+  width: 18px;
+  height: 18px;
+}
+.items .item p {
+  font-size: 0.9vw;
+  margin: 0;
+  margin-left: 20px;
+  color: rgba(0, 0, 0, 0.32);
+  font-weight: bold;
+}
+.items .selected {
+  background-color: #ebf5ff;
+}
+.items .selected p {
+  color: #1683dd;
+}
+
+.bottom {
+  padding: 1vh;
+}
+.bottom ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logout {
+  display: flex;
+  position: absolute;
+  bottom: 5vh;
+  padding: 1vh;
+  background-color: rgb(230, 152, 152);
+}
+.logout ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.logout img {
+  width: 18px;
+  height: 18px;
+}
+.logout p {
+  font-size: 0.9vw;
+  margin: 0;
+  margin-left: 20px;
+  color: red;
+  font-weight: bold;
+}/*# sourceMappingURL=Menu.css.map */

@@ -1,0 +1,106 @@
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800
+
+
+.top{
+    display: flex;
+    
+    .name h4{
+        font-size: 25px;
+        margin: 0;
+        margin-left: 10px;
+        
+    }
+
+                img{
+                    width: 32px;
+                    height: 28px;
+                    margin-top: 2px;
+                    
+                }
+}
+
+.items{
+    margin-top: 3vw;
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li{
+            position: relative;
+        }
+
+
+    }
+    .item{
+        display: flex;
+        margin-top: 10px;
+        padding: 1vh;
+
+        .icon{
+            position: absolute;
+            right: .8vw;
+            width: 10px;
+            height: 10px;
+        }
+
+        img{
+            width: 18px;
+            height: 18px;
+        }
+        p{
+            font-size: .9vw;
+            margin: 0;
+            margin-left: 20px;
+            color: rgba(0, 0, 0, 0.32);
+            font-weight: bold;
+            
+        }
+    }
+    .selected{
+        background-color: #ebf5ff;
+        p{
+            color: #1683dd;
+        }
+    }
+
+}
+
+.bottom{
+    padding: 1vh;
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+
+
+    }
+}
+
+.logout{
+    display: flex;
+    position: absolute;
+    bottom: 5vh;
+    padding: 1vh;
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    img{
+        width: 18px;
+        height: 18px;
+    }
+    p{
+        font-size: .9vw;
+        margin: 0;
+        margin-left: 20px;
+        color: red;
+        font-weight: bold;
+        
+    }
+    background-color: rgb(230, 152, 152);
+}
+

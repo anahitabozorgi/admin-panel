@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    
+
+    h2{
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .right{
+        display: flex;
+        h2{
+            margin-left: 1em;
+        }
+    }
+
+    .left{
+        display: flex;
+        h2{
+            margin-left: 1em;
+        }
+    }
+
+    img{
+        width: 25px;
+        height: 25px;
+    }
+}
