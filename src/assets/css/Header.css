@@ -1,22 +1,23 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Horizontally space the elements */
+  align-items: center; /* Vertically center the elements */
+  height: 40.65px; /* Define the height of the header */
+}
+.header .left, .header .right {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Ensure the left and right elements take up full height */
+}
+.header .left {
+  margin-right: auto; /* Push the left element to the far left */
+}
+.header .right {
+  margin-left: auto; /* Push the right element to the far right */
 }
 .header h2 {
   font-size: 15px;
   margin: 0;
-}
-.header .right {
-  display: flex;
-}
-.header .right h2 {
-  margin-left: 1em;
-}
-.header .left {
-  display: flex;
-}
-.header .left h2 {
-  margin-left: 1em;
 }
 .header img {
   width: 25px;

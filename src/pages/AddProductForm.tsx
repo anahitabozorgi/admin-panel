@@ -1,58 +1,115 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
-const AddProductForm: React.FC<any> = ({products, setProducts}) => {
+import { useDispatch, useSelector } from 'react-redux';
+import {userData, productList} from '../action/UserAction';
+import { RootStore } from '../Store';
+import { addProductList } from "../action/UserAction";
+import '../assets/css/Modal.css'
 
-    const [name, setName] = useState<string>('');
-    const [price, setPrice] = useState<number>(0);
-    const [status, setStatus] = useState<boolean>(false)
+
+const AddProductForm: React.FC<any> = ({setIsModalOpen}) => {
+
+    const dispatch = useDispatch();
+
+    const [tempVariable, setTempVariable] = useState<any>(
+        {
+            product_id: Date.now(),
+            product_name: "",
+            product_price: 0,
+            product_image: null
+        }
+    )
 
 
+
+    // const handleAddProduct = () => {
+    //     dispatch(addProductList(tempVariable));
+
+    // };
+
+    const [amount, setAmount] = useState<number>(1)
+
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleAddProduct = () => {
-        setProducts([{
-            id:Date.now(),
-            name: name,
-            price: price,
-            status: status
-        },
+        // if(tempVariable.product_price < 0) {
+        //     alert('price can not be negative');
+        //     return;
+        // }
 
-        ...products
-    ])
+        // if(tempVariable.product_name.length < 2){
+        //     alert('name can not be less than 2 letters');
+        //     return;
+        // }
+
+        dispatch(addProductList({ ...tempVariable, product_image: imageUrl }));
+        setIsModalOpen(false);
     };
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setImageUrl(reader.result as string);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            setTempVariable({
+                ...tempVariable,
+                product_image: event.target.files[0]
+            });
+        }
+    };
+
+
+    const handlePrice = (value:any) => {
+        if (value<0){
+            setTempVariable({...tempVariable, product_price: 0});
+        }
+        else{
+            setTempVariable({...tempVariable, product_price: value})
+        }
+
+    }
 
     return(
         <>
-            <Link to={"/"}><button>back</button></Link>
-            <h2>Add Product</h2>
-                <form>
-                    <div>
+            
+            
+                <form className="modalBackground">
+                    <div className="modalContainer">
+
                         <label htmlFor="name">Product Name: </label>
                         <input
                         type="text"
                         id="name"
-                        value={name}
-                        onChange={(item) => setName(item.target.value)}
+                        value={tempVariable.product_name}
+                        onChange={(item) => setTempVariable({...tempVariable, product_name: item.target.value})}
                         />
 
                         <label htmlFor="price">Product Price: </label>
                         <input
                         type="number"
                         id="price"
-                        value={price}
-                        onChange={(item) => setPrice(parseInt(item.target.value))}
+                        value={tempVariable.product_price}
+                        //onChange={(item) => setTempVariable({...tempVariable, product_price: item.target.value})}
+                        onChange={(item) => handlePrice(item.target.value)}
                         />
 
-                        <label htmlFor="productStatus">Product Status:</label>
+                        <label htmlFor="image">Product Image: </label>
                         <input
-                        type="checkbox"
-                        id="productStatus"
-                        checked={status}
-                        onChange={(item) => setStatus(item.target.checked)}
+                            type="file"
+                            id="image"
+                            accept="image/*"
+                            onChange={handleImageChange}
                         />
+
+                        {imageUrl && <img src={imageUrl} alt="Product Preview" style={{ maxWidth: '200px' }} />}
+                        <button type="button" onClick={()=>{handleAddProduct();}}>Add Product</button>
+                        <button onClick={() => setIsModalOpen(false)}>back</button>
+
                     </div>
 
-                    <button type="button" onClick={handleAddProduct}>Add Product</button>
+                    
                 </form>
     
         
